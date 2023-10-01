@@ -1,9 +1,18 @@
 import { Request, Response } from 'express';
+import { CreateParticipant } from '../protocols/participant';
+import { notEnoughMoneyError } from '../errors/not-enough-money';
+import participantsRepository from '../repositories/participants-repository';
 
-export async function createParticipant(req: Request, res: Response) {
-  return 0;
+async function createParticipant(participant: CreateParticipant) {
+  if(participant.balance < 1000) throw notEnoughMoneyError()
+
+  return await participantsRepository.createParticipant(participant);
 }
 
-export async function getParticipants(req: Request, res: Response) {
-  return 0;
+async function getParticipants() {
+  return await participantsRepository.getParticipants();
 }
+
+const participantsService = { createParticipant, getParticipants };
+
+export default participantsService;

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createBet } from '../services/bets-service';
+import { createBet } from '../controllers/bets-controller';
 
 const betsRouter = Router();
 

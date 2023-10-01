@@ -1,18 +1,21 @@
 import { Request, Response } from 'express';
 
-
-export async function createGame(req: Request, res: Response) {
+async function createGame(req: Request, res: Response) {
   return 0;
 }
 
-export async function finishGame(req: Request, res: Response) {
+async function finishGame(req: Request, res: Response) {
   return 0;
 }
 
-export async function getGames(req: Request, res: Response) {
+async function getGames(req: Request, res: Response) {
   return 0;
 }
 
-export async function getGamesById(req: Request, res: Response) {
+async function getGamesById(req: Request, res: Response) {
   return 0;
 }
+
+const gamesService = { createGame, finishGame, getGames, getGamesById };
+
+export default gamesService;

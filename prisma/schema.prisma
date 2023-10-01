@@ -17,6 +17,8 @@ model Participant {
   name      String
   balance   Int
   Bet       Bet[]
+
+  @@map("participants")
 }
 
 model Game {
