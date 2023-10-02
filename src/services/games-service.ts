@@ -1,18 +1,19 @@
-import { Request, Response } from 'express';
+import { CreateGame } from '../protocols/game';
+import gamesRepository from '../repositories/games-repository';
 
-async function createGame(req: Request, res: Response) {
+async function createGame(game: CreateGame) {
+  return await gamesRepository.createGame(game);
+}
+
+async function finishGame() {
   return 0;
 }
 
-async function finishGame(req: Request, res: Response) {
-  return 0;
+async function getGames() {
+  return await gamesRepository.getGames();
 }
 
-async function getGames(req: Request, res: Response) {
-  return 0;
-}
-
-async function getGamesById(req: Request, res: Response) {
+async function getGamesById() {
   return 0;
 }
 

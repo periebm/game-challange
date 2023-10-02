@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import { CreateParticipant } from '../protocols/participant';
 import { notEnoughMoneyError } from '../errors/not-enough-money';
 import participantsRepository from '../repositories/participants-repository';

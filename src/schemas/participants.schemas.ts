@@ -1,5 +1,4 @@
 import Joi from 'joi';
-import { Participant } from '@prisma/client';
 import { CreateParticipant } from '../protocols/participant';
 
 

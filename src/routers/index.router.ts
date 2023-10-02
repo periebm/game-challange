@@ -5,8 +5,8 @@ import { participantsRouter } from './participants-router';
 
 const router = Router();
 
-router.use("/participants", participantsRouter);
-router.use(betsRouter);
-router.use(gamesRouter);
+router.use('/participants', participantsRouter);
+router.use('/bets', betsRouter);
+router.use('/games', gamesRouter);
 
 export default router;
