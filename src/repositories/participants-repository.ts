@@ -11,6 +11,19 @@ async function getParticipants() {
   return await prisma.participant.findMany();
 }
 
-const participantsRepository = { createParticipant, getParticipants };
+async function findParticipant(participantId: number) {
+  return await prisma.participant.findFirst({
+    where: { id: participantId },
+  });
+}
+
+async function updateBalance(participantId: number, newBalance: number) {
+  return await prisma.participant.update({
+    where: { id: participantId },
+    data: { balance: newBalance },
+  });
+}
+
+const participantsRepository = { createParticipant, getParticipants, findParticipant, updateBalance };
 
 export default participantsRepository;

@@ -11,6 +11,12 @@ async function getGames() {
   return await prisma.game.findMany();
 }
 
-const gamesRepository = { createGame, getGames };
+async function findGame(gameId: number) {
+  return await prisma.game.findFirst({
+    where: { id: gameId },
+  });
+}
+
+const gamesRepository = { createGame, getGames, findGame };
 
 export default gamesRepository;
