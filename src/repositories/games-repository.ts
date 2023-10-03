@@ -11,12 +11,23 @@ async function getGames() {
   return await prisma.game.findMany();
 }
 
+async function getGamesbyId(gameId: number) {
+  return await prisma.game.findUnique({
+    where: {
+      id: gameId,
+    },
+    include: {
+      Bet: true,
+    },
+  });
+}
+
 async function findGame(gameId: number) {
   return await prisma.game.findFirst({
     where: { id: gameId },
   });
 }
 
-const gamesRepository = { createGame, getGames, findGame };
+const gamesRepository = { createGame, getGames, findGame, getGamesbyId };
 
 export default gamesRepository;

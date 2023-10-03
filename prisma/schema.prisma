@@ -31,6 +31,9 @@ model Game {
   awayTeamScore Int @default(0)
   isFinished    Boolean @default(false)
   Bet           Bet[]
+
+    @@map("bets")
+
 }
 
 model Bet {
