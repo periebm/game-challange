@@ -17,8 +17,6 @@ model Participant {
   name      String
   balance   Int
   Bet       Bet[]
-
-  @@map("participants")
 }
 
 model Game {
@@ -27,13 +25,10 @@ model Game {
   updatedAt     DateTime @updatedAt
   homeTeamName  String
   awayTeamName  String
-  homeTeamScore Int @default(0)
-  awayTeamScore Int @default(0)
-  isFinished    Boolean @default(false)
+  homeTeamScore Int      @default(0)
+  awayTeamScore Int      @default(0)
+  isFinished    Boolean  @default(false)
   Bet           Bet[]
-
-    @@map("bets")
-
 }
 
 model Bet {

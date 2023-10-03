@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { CreateGame } from '../protocols/game';
+import { CreateGame, CreateScore } from '../protocols/game';
 import gamesService from '../services/games-service';
 import httpStatus from 'http-status';
 import { isValid } from '../utils/id-validator';
@@ -15,7 +15,10 @@ export async function finishGame(req: Request, res: Response) {
   const id = parseInt(req.params.id);
   if (!isValid(id)) return res.sendStatus(httpStatus.BAD_REQUEST);
 
-  return 0;
+  const game = req.body as CreateScore;
+
+  const finishedGame = await gamesService.finishGame(id, game);
+  res.send(finishedGame);
 }
 
 export async function getGames(req: Request, res: Response) {
